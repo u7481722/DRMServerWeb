@@ -36,11 +36,10 @@ public class ROController {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		String strPsid = "";
+		String strDeviceId = dto.getDeviceId();
 		String cek = "";
 		String roTemplate = "";
 		String contentType = "";
-		String strDeliveryId = dto.getDeviceId();
 		String strContentId = dto.getContentId();
 		String strPublicKey = dto.getPublickey();
 
@@ -53,7 +52,7 @@ public class ROController {
 		RODTO roDTO = new RODTO();
 		try {
 			GenRO ro = new GenRO();
-			String strRO = ro.genRO(strDeliveryId, strPsid, contentType, roTemplate, cek, strPublicKey);
+			String strRO = ro.genRO(strContentId, strDeviceId, contentType, roTemplate, cek, strPublicKey);
 			roDTO.setReturnCode(0);
 			roDTO.setReturnMessage("success");
 			roDTO.setRo(strRO);
